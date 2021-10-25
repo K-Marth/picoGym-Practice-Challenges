@@ -101,3 +101,99 @@ Oh, help? I actually don't do much, but I do have this flag here: picoCTF{b1scu1
 
 ```
 
+### Nice netcat...
+
+*Steps to follow to solve the challenge*
+
+1. We execute the command nc mercury.picoctf.net 7449 in our shell and we will see the following.
+
+```
+❯ nc mercury.picoctf.net 7449
+112 
+105 
+99 
+111 
+67 
+84 
+70 
+123 
+103 
+48 
+48 
+100 
+95 
+107 
+49 
+116 
+116 
+121 
+33 
+95 
+110 
+49 
+99 
+51 
+95 
+107 
+49 
+116 
+116 
+121 
+33 
+95 
+102 
+50 
+100 
+55 
+99 
+97 
+102 
+97 
+125 
+10 
+```
+
+2. We copy what the command gave us and paste it in the following web site https://www.duplichecker.com/ascii-to-text.php
+
+3. Click on convert ASCII to text and get the flag. Challenge completed.
+
+### Static ain't always noise
+
+*Steps to follow to solve the challenge*
+
+1. Execute the wget command to download the static file in the following way
+
+```
+❯ wget "https://mercury.picoctf.net/static/66932732825076cad4ba43e463dae82f/static" 
+```
+
+2. Execute the wget command to download the  ltdis.sh file in the following way
+
+```
+❯ wget "https://mercury.picoctf.net/static/66932732825076cad4ba43e463dae82f/ltdis.sh" 
+```
+
+3. Execute the command chmod +x to grant execution permissions to the static file.
+
+```
+❯ chmod +x static
+```
+
+4. Execute the command chmod +x to grant execution permissions to the ltdish.sh file.
+
+```
+❯ chmod +x ltdish.sh
+```
+
+5. We execute the command ./ltdish.sh static to generate 2 .txt files which are as follows static.ltdis.strings.txt static.ltdis.x86_64.txt 
+
+```
+❯ ./ltdish.sh static
+```
+
+6. We run the command cat static.ltdis.strings.txt | grep pico to search for the flag and find it in the most efficient way. Challenge completed
+
+```
+❯ cat static.ltdis.strings.txt | grep pico
+  1020 picoCTF{d15a5m_t34s3r_f5aeda17}
+```
